@@ -15,6 +15,7 @@ namespace GADE_1b_redo
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }

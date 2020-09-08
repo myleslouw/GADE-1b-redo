@@ -90,7 +90,7 @@ namespace GADE_1b_redo
     abstract class Enemy : Character
     {
         protected int rndmNum;
-        protected int enemyDamage { get; set; }
+        protected int enemyDamage { get; set; }  // is this correct inheritance
         protected int enemyHP { get; set; }
         protected int enemyMaxHP { get; set; }
         protected string enemySymbol { get; set; }
@@ -116,10 +116,11 @@ namespace GADE_1b_redo
 
     class Goblin : Enemy
     {
-        public Goblin(string goblinX, string goblinY)
+        public Goblin(string goblinX, string goblinY, int goblinDamage, int goblinHP)
         {
             X = goblinX;
             Y = goblinY;
+            goblinHP = 10;     // *******   have i misused inheritance 
         }
 
         //public override ReturnMove()

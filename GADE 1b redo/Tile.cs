@@ -8,16 +8,33 @@ namespace GADE_1b_redo
 {
     abstract class Tile
     {
-        protected string X;
-        protected string Y;
-        public enum TileType { Hero, Enemy, Gold };
+        protected TileType _X;
+        protected TileType _Y;
+        public enum TileType { Hero, Enemy, Gold, Weapon };
+
+        public TileType X
+        {
+            get { return _X; }
+            set { _X = value; }
+        }
+
+        public TileType Y
+        {
+            get { return _Y; }
+            set { _Y = value; }
+        }
+
+
 
 
     }
 
     class Obstacle : Tile
     {
+        public Obstacle()
+        {
 
+        }
     }
 
     class EmptyTile : Tile
@@ -42,16 +59,16 @@ namespace GADE_1b_redo
         }
         public Character(string xPos, string yPos, string _symbol)
         {
-            X = xPos;
-            Y = yPos;
-            symbol = _symbol;
+            this.X = xPos;
+            this.Y = yPos;
+            this.symbol = _symbol;
 
 
         }
 
         public virtual void Attack(Character target)
         {
-
+            target.HP -= damage;
         }
 
         public bool IsDead()
@@ -102,9 +119,9 @@ namespace GADE_1b_redo
         }
         public Enemy(string enemyX, string enemyY, string _enemySymbol)
         {
-            X = enemyX;
-            Y = enemyY;
-            symbol = _enemySymbol;
+            this.X = enemyX;
+            this.Y = enemyY;
+            this.symbol = _enemySymbol;
 
         }
         public override string ToString()
@@ -118,9 +135,12 @@ namespace GADE_1b_redo
     {
         public Goblin(string goblinX, string goblinY, int goblinDamage, int goblinHP)
         {
-            X = goblinX;
-            Y = goblinY;
+            this.X = goblinX;
+            this.Y = goblinY;
+            this.enemyHP = goblinHP;
+            this.enemyDamage = goblinDamage;
             goblinHP = 10;     // *******   have i misused inheritance 
+            goblinDamage = 1;
         }
 
         //public override ReturnMove()

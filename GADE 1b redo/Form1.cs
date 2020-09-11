@@ -20,12 +20,12 @@ namespace GADE_1b_redo
         public static string MinWidth;
 
         
-        Map instance = new Map(10,10,10,10,0);  // ***** cant access variables from Map 
+        //Map instance = new Map(10,10,10,10,0);  // ***** cant access variables from Map 
 
         public Form1()
         {
             InitializeComponent();
-
+            engine = new GameEngine();
             
         }
 

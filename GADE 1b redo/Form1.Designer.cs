@@ -106,7 +106,7 @@
             this.lBox_pInfo.FormattingEnabled = true;
             this.lBox_pInfo.Location = new System.Drawing.Point(508, 73);
             this.lBox_pInfo.Name = "lBox_pInfo";
-            this.lBox_pInfo.Size = new System.Drawing.Size(210, 108);
+            this.lBox_pInfo.Size = new System.Drawing.Size(210, 56);
             this.lBox_pInfo.TabIndex = 7;
             // 
             // lBox_extraData

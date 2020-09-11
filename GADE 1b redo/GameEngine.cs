@@ -6,14 +6,39 @@ using System.Threading.Tasks;
 
 namespace GADE_1b_redo
 {
-    class GameEngine
+    class GameEngine 
     {
-        private Map myMap { get; set; }
+        private Map myMap;              //{ get; set; }
         private Form1 form;
+        private char[,] mapTiles;
+        private int mapHeight;
+        private int mapWidth;
 
-        public GameEngine(Form1 form)
+        public GameEngine()
         {
-            
+            //this.form = form;
+
+            //mapTiles = new char[mapHeight, mapWidth];
+
+            myMap = new Map()
+
+
+            //foreach (Tile spots in myMap.mapTiles)
+            //{
+                
+            //}
+            int mapRows = mapTiles.GetLength(0);
+            int mapCol = mapTiles.GetLength(1);
+
+
+            for (int i = 0; i < mapRows; i++)
+            {
+                for (int j = 0; j < mapCol; j++)
+                {
+
+                }
+
+            }
         }
     }
 }

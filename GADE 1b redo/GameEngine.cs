@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GADE_1b_redo
 {
@@ -11,16 +12,25 @@ namespace GADE_1b_redo
         private Map myMap;              //{ get; set; }
         private Form1 form;
         private char[,] mapTiles;
-        private int mapHeight;
-        private int mapWidth;
+        private int _mapHeight;
+        private int _mapWidth;
+
+        private static char heroChar = 'H';
+        private static char goblinChar = 'G';
+        private static char emptyChar = '.';
+        private static char obstacleChar = 'X';
+
+
+
+
 
         public GameEngine()
         {
-            //this.form = form;
+            
 
             //mapTiles = new char[mapHeight, mapWidth];
 
-            myMap = new Map()
+            //myMap = new Map();
 
 
             //foreach (Tile spots in myMap.mapTiles)
@@ -35,10 +45,12 @@ namespace GADE_1b_redo
             {
                 for (int j = 0; j < mapCol; j++)
                 {
-
+                    
                 }
 
             }
         }
+        //public bool MovePlayer()
+
     }
 }

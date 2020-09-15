@@ -48,7 +48,10 @@ namespace GADE_1b_redo
             enemyPlacement = new char[(mapHeight + mapWidth) / 2];
 
 
-            //Create();
+            void Create()
+            {
+
+            }
 
             //createse enemy array base on size?
             //create()  create enemy and pit them on a tile
@@ -57,8 +60,8 @@ namespace GADE_1b_redo
 
         private void Create()         // ******** private Tile create
         {
-            
-            
+
+
 
 
             int mapRows = mapTiles.GetLength(0);
@@ -72,20 +75,15 @@ namespace GADE_1b_redo
 
             }
         }
+        public void UpdateVision()
+        {
+            //Updates the vision array for each Character (the
 
+            //hero and each enemy) by saving the character values of the map at the
+
+            //north, south, east and west position from the X and Y positions of the unit
+        }
     }
-
-    //public void UpdateVision()
-    //{
-        //Updates the vision array for each Character (the
-        //hero and each enemy) by saving the character values of the map at the
-        //north, south, east and west position from the X and Y positions of the unit
-    //}
-
-
-
-
-
 }
 
 

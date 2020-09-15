@@ -8,21 +8,11 @@ namespace GADE_1b_redo
 {
     abstract class Tile
     {
-        protected TileType _X;
-        protected TileType _Y;
+        protected string X { get; set; }
+        protected string Y { get; set; }
         public enum TileType { Hero, Enemy, Gold, Weapon };
 
-        public TileType X
-        {
-            get { return _X; }
-            set { _X = value; }
-        }
-
-        public TileType Y
-        {
-            get { return _Y; }
-            set { _Y = value; }
-        }
+       
 
 
 
@@ -54,14 +44,14 @@ namespace GADE_1b_redo
 
         public Character()
         {
-            //idk what this is for  it solved this error 
+            //idk what this is for but it solved this error 
             //There is no argument given that corresponds to the required formal parameter 'xPos' of 'Character.Character(string, string, string)'
         }
         public Character(string xPos, string yPos, string _symbol)
         {
-            this.X = xPos;
-            this.Y = yPos;
-            this.symbol = _symbol;
+            X = xPos;
+            Y = yPos;
+            symbol = _symbol;
 
 
         }
@@ -81,24 +71,24 @@ namespace GADE_1b_redo
             return false;
         }
 
-        //private int DistanceTo(target)
-        //{
-
-        //}
+        private int DistanceTo(target)
+        {
+            return
+        }
 
         public void Move(movement move)
         {
 
         }
 
-        //public abstract movement ReturnMove(movement move = 0)
-        //{
+        public abstract movement ReturnMove(movement move = 0)
+        {
 
-        //}
-        //public abstract override string ToString()
-        //{
+        }
+        public abstract override string ToString()
+        {
 
-        //}
+        }
 
 
 
@@ -143,10 +133,10 @@ namespace GADE_1b_redo
             goblinDamage = 1;
         }
 
-        //public override ReturnMove()
-        //{
-        //    return
-        //}
+        public override ReturnMove()
+        {
+            return
+        }
     }
 
     class Hero : Character
@@ -155,10 +145,10 @@ namespace GADE_1b_redo
         {
 
         }
-        //public override ReturnMove()
-        //{
-        //    return
-        //}
+        public override ReturnMove()
+        {
+            return
+        }
         public override string ToString()
         {
             return "Player Stats: \n HP: HP/MAX HP \n Damage: 2 \n at [X, Y]";   //?????????

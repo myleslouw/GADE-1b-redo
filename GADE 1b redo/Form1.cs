@@ -20,8 +20,7 @@ namespace GADE_1b_redo
         public static string MinWidth;
 
         
-        //Map instance = new Map(10,10,10,10,0);  // ***** cant access variables from Map 
-
+        //Map instance = new Map(10,10,10,10,0); 
         public Form1()
         {
             InitializeComponent();
@@ -36,6 +35,8 @@ namespace GADE_1b_redo
             MaxWidth = txtbox_maxWidth.Text;
             MinWidth = txtbox_minWidth.Text;
 
+
+            
             
         }
 
@@ -48,7 +49,7 @@ namespace GADE_1b_redo
 
         public void showMap()
         {
-            
+            lbl_game.Text += "idk what to do";
         }
     
     }

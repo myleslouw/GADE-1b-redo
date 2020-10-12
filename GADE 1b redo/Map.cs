@@ -21,8 +21,10 @@ namespace GADE_1b_redo
         public int mapHeight, mapWidth;
         public Random rndmNum = new Random();
 
+        Item[] mapItems; 
 
-        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies)
+
+        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies, int mumOfGold)
         {
 
             mapHeight = rndmNum.Next(inputMinHeight, inputMaxHeight);
@@ -36,8 +38,9 @@ namespace GADE_1b_redo
             
             int goblinX = rndmNum.Next(mapHeight, mapWidth);
             int goblinY = rndmNum.Next(mapHeight, mapWidth);
-            string goblinSymbol = "G";  //golbin symbol
+            string goblinSymbol = "G"; // G golbin symbol
             string heroSymbol = "H"; // hero symbol
+            string mageSymbol = "M";
 
             string sGoblinX = Convert.ToString(goblinX);
             string sGoblinY = Convert.ToString(goblinY);
@@ -47,6 +50,9 @@ namespace GADE_1b_redo
                 Create(sGoblinX, sGoblinY, 1, 10, 10, goblinSymbol);
             }
             Create(sGoblinX,sGoblinY, 2, 20 , 20, heroSymbol);    //creates a hero?
+
+            Create(sGoblinX, sGoblinY, 5, 5, 5, mageSymbol); //creates mage
+
             
 
             //create()  create enemy and pit them on a tile (pre lessons)

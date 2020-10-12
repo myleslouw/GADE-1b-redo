@@ -34,16 +34,12 @@ namespace GADE_1b_redo
             MaxHeight = txtbox_maxHeight.Text;
             MaxWidth = txtbox_maxWidth.Text;
             MinWidth = txtbox_minWidth.Text;
-
-
-            
-            
+ 
         }
 
         private void btn_start_Click(object sender, EventArgs e)
         {
             GetCoordinate();
-            
             
         }
 

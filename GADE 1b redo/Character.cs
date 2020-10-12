@@ -58,39 +58,45 @@ namespace GADE_1b_redo
 
         public void Move(movement move)
         {
-            if (move == movement.Up)    ///use the pos variables
+         
+            switch (move)
             {
-                //character moves up
-                //character = Y++;
-                
+                case movement.Up:
+                    //character moves up
+                    //character = Y++;
+                    
+                    break;
+                case movement.Down:
+                    //char moves down    
+                    //change to case thingys
+                    //character = Y--
+                    break;
+                case movement.Left:
+                    //moves left
+                    //character = X--
+                    break;
+
+                case movement.Right:
+                    // right etc
+                    //character = X++
+                    break;
+                case movement.NoMvm:
+                    //doesnt move duh
+                    //character.xPos = character.xPos
+                    //character.yPos = character.yPos
+                    break;
 
             }
-            else if (move == movement.Down)
-            {
-                //char moves down    
-                //change to case thingys
-                //character = Y--
-            }
-            else if (move == movement.Left)
-            {
-                //moves left
-                //character = X--
-            }
-            else if (move == movement.Right)
-            {
-                // right etc
-                //character = X++
-            }
-            else if (move == movement.NoMvm)
-            {
-                //doesnt move duh
-                //character.xPos = character.xPos
-                //character.yPos = character.yPos
-            }
-
         }
         public abstract movement ReturnMove(movement move = 0);
 
         public abstract override string ToString();
+
+
+        public void Pickup(Item i)
+        {
+
+        }
+
     }
 }

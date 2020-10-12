@@ -10,7 +10,7 @@ namespace GADE_1b_redo
     {
 
         protected Random rndnum = new Random();
-        protected int enemyDamage { get; set; }  // is this correct inheritance
+        protected int enemyDamage { get; set; }  
         protected int enemyHP { get; set; }
         protected int enemyMaxHP { get; set; }
         protected string enemySymbol { get; set; }

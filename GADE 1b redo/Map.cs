@@ -88,7 +88,7 @@ namespace GADE_1b_redo
         {
            //create instance of character (hero or enemy)
            //create instance of an object 
-           ,,
+           
 
 
         }
@@ -100,6 +100,14 @@ namespace GADE_1b_redo
             //hero and each enemy) by saving the character values of the map at the
 
             //north, south, east and west position from the X and Y positions of the unit
+        }
+        //private Tile Create()
+        //{
+        //    return 
+        //}
+        public Item GetItemAtPosition(int x, int y)
+        {
+
         }
     }
 }

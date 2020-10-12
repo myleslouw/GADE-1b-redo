@@ -9,16 +9,16 @@ namespace GADE_1b_redo
 {
     class GameEngine 
     {
-        private Map myMap;              //{ get; set; }
+        private Map myMap { get; set; }
         private Form1 form;
         private char[,] mapTiles;
         private int _mapHeight;
         private int _mapWidth;
 
-        private static char heroChar = 'H';
-        private static char goblinChar = 'G';
-        private static char emptyChar = '.';
-        private static char obstacleChar = 'X';
+        private static readonly char heroChar = 'H';
+        private static readonly char goblinChar = 'G';
+        private static readonly char emptyChar = '.';
+        private static readonly char obstacleChar = 'X';
 
 
 
@@ -26,17 +26,7 @@ namespace GADE_1b_redo
 
         public GameEngine()
         {
-
             
-            //mapTiles = new char[mapHeight, mapWidth];
-
-            //myMap = new Map();
-
-
-            //foreach (Tile spots in myMap.mapTiles)
-            //{
-                
-            //}
             int mapRows = mapTiles.GetLength(0);
             int mapCol = mapTiles.GetLength(1);
 
@@ -50,7 +40,22 @@ namespace GADE_1b_redo
 
             }
         }
-        //public bool MovePlayer()
+        public bool MovePlayer()
+        {
+
+
+            return false;
+        }
+
+        public void Save()
+        {
+
+        }
+
+        public void Load()
+        {
+
+        }
 
     }
 }

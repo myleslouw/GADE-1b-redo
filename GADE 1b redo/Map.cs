@@ -14,67 +14,85 @@ namespace GADE_1b_redo
 {
     public class Map
     {
-        public char[,] mapTiles;
+        //public char[,] mapTiles;
         private Tile[,] tileMapTiles;
-        public char hero = 'H'; //A Hero object to represent the player character
-        public char[] enemyPlacement;
+        private Hero myHero = new Hero(); //A Hero object to represent the player character
+        private Enemy[] enemies;
         public int mapHeight, mapWidth;
         public Random rndmNum = new Random();
 
-        private Form1 form;
 
-
-
-
-        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth)
+        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies)
         {
-
-
-            inputMaxHeight = int.Parse(Form1.MaxHeight);
-            inputMinHeight = int.Parse(Form1.MinHeight);
-            inputMaxWidth = int.Parse(Form1.MaxWidth);
-            inputMinWidth = int.Parse(Form1.MinWidth);
-
-            // enemyCounter =  ;
-
-
 
             mapHeight = rndmNum.Next(inputMinHeight, inputMaxHeight);
             mapWidth = rndmNum.Next(inputMinWidth, inputMaxWidth);
 
-            mapTiles = new char[mapWidth, mapHeight];
+
             tileMapTiles = new Tile[mapWidth, mapHeight];
 
-            enemyPlacement = new char[(mapHeight + mapWidth) / 2];
+            enemies = new Enemy[GetNumEnemies()];  //values taken from getNumEnemies
 
+            
+            int goblinX = rndmNum.Next(mapHeight, mapWidth);
+            int goblinY = rndmNum.Next(mapHeight, mapWidth);
+            string goblinSymbol = "G";  //golbin symbol
+            string heroSymbol = "H"; // hero symbol
 
-            void Create()
+            string sGoblinX = Convert.ToString(goblinX);
+            string sGoblinY = Convert.ToString(goblinY);
+
+            for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates a goblino
             {
-
+                Create(sGoblinX, sGoblinY, 1, 10, 10, goblinSymbol);
             }
+            Create(sGoblinX,sGoblinY, 2, 20 , 20, heroSymbol);    //creates a hero?
+            
 
-            //createse enemy array base on size?
-            //create()  create enemy and pit them on a tile
+            //create()  create enemy and pit them on a tile (pre lessons)
             //UpdateVision   for character vision 
         }
 
-        private void Create()         // ******** private Tile create
+        private int GetNumEnemies()
         {
-
-
-
-
-            int mapRows = mapTiles.GetLength(0);
-            int mapCol = mapTiles.GetLength(1);
-            for (int i = 0; i < mapRows; i++)
+            
+            double rawNumEnemies;
+            int numEnemies;
+            if (mapHeight < 7)
             {
-                for (int j = 0; j < mapCol; j++)
-                {
-
-                }
-
+                rawNumEnemies = ((mapHeight * mapWidth) / 10);
+                numEnemies = Convert.ToInt32(Math.Ceiling(rawNumEnemies));
             }
+
+            else
+            {
+                rawNumEnemies = ((mapHeight * mapWidth) / 10);
+                numEnemies = Convert.ToInt32(Math.Floor(rawNumEnemies));
+            }
+
+            if (mapWidth < 7)
+            {
+                rawNumEnemies = ((mapHeight * mapWidth) / 10);
+                numEnemies = Convert.ToInt32(Math.Ceiling(rawNumEnemies));
+            }
+            else
+            {
+                rawNumEnemies = ((mapHeight * mapWidth) / 10);
+                numEnemies = Convert.ToInt32(Math.Ceiling(rawNumEnemies));
+            }
+
+            return numEnemies;  //is this correct?
         }
+
+        private void Create(string unitX, string unitY, int unitDamage, int unitHP, int unitMaxHP, string symbol)
+        {
+           //create instance of character (hero or enemy)
+           //create instance of an object 
+           
+
+
+        }
+
         public void UpdateVision()
         {
             //Updates the vision array for each Character (the

@@ -26,8 +26,8 @@ namespace GADE_1b_redo
 
         public GameEngine()
         {
-            
 
+            
             //mapTiles = new char[mapHeight, mapWidth];
 
             //myMap = new Map();

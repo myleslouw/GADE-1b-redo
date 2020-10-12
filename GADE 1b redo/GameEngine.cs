@@ -26,19 +26,10 @@ namespace GADE_1b_redo
 
         public GameEngine()
         {
-            
-            int mapRows = mapTiles.GetLength(0);
-            int mapCol = mapTiles.GetLength(1);
+            myMap = new Map();
+            myMap.mapHeight = _mapHeight;
+            myMap.mapWidth = _mapWidth;
 
-
-            for (int i = 0; i < mapRows; i++)
-            {
-                for (int j = 0; j < mapCol; j++)
-                {
-                    
-                }
-
-            }
         }
         public bool MovePlayer()
         {

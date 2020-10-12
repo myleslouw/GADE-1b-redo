@@ -59,6 +59,10 @@ namespace GADE_1b_redo
             //UpdateVision   for character vision 
         }
 
+        public Map()
+        {
+        }
+
         private int GetNumEnemies()
         {
             

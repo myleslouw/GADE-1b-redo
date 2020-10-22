@@ -8,7 +8,7 @@ namespace GADE_1b_redo
 {
     class EmptyTile : Tile
     {
-        public EmptyTile(string x, string y) : base()
+        public EmptyTile(int x, int y) : base()
         {
             X = x;
             Y = y;

@@ -8,7 +8,7 @@ namespace GADE_1b_redo
 {
     abstract class Item : Tile
     {
-        public Item(string itemX, string itemY)
+        public Item(int itemX, int itemY)
         {
             X = itemX;
             Y = itemY;

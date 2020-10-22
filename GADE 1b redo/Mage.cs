@@ -8,7 +8,7 @@ namespace GADE_1b_redo
 {
     class Mage : Enemy
     {
-        public Mage(string mageX, string mageY)
+        public Mage(int mageX, int mageY)
         {
             X = mageX;
             Y = mageY;

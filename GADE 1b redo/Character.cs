@@ -16,7 +16,9 @@ namespace GADE_1b_redo
 
         protected string symbol;
 
-        public Character(string xPos, string yPos, string _symbol)
+        
+
+        public Character(int xPos, int yPos, string _symbol)
         {
             X = xPos;
             Y = yPos;
@@ -30,7 +32,9 @@ namespace GADE_1b_redo
 
         public virtual void Attack(Character target)
         {
-            //target.HP -= damage;
+            target.HP -= damage;
+
+            //characterVision[0] =  Y + 1;
         }
 
         public bool IsDead()
@@ -64,26 +68,39 @@ namespace GADE_1b_redo
                 case movement.Up:
                     //character moves up
                     //character = Y++;
-                    
+
+                    //fetch position of character (x pos and Y pos)
+                    //increase/decrease acordingly
+
+                    Y = Y++;        
+
                     break;
                 case movement.Down:
                     //char moves down    
-                    //change to case thingys
-                    //character = Y--
+
+                    Y = Y--;
+
                     break;
                 case movement.Left:
                     //moves left
-                    //character = X--
-                    break;
+                    //character = X--;
 
+                    X = X--;
+
+                    break;
                 case movement.Right:
                     // right etc
-                    //character = X++
+                    //character = X++;
+
+                    X = X++;
                     break;
                 case movement.NoMvm:
-                    //doesnt move duh
-                    //character.xPos = character.xPos
+                    //character.xPos = character.xPos;
                     //character.yPos = character.yPos
+
+                    X = X;
+                    Y = Y;
+
                     break;
 
             }

@@ -8,9 +8,9 @@ namespace GADE_1b_redo
 {
     class Goblin : Enemy
     {
-        public Goblin(string goblinX, string goblinY)
+        public Goblin(int goblinX, int goblinY)
         {
-            X = goblinX;    //should fix issues 
+            X = goblinX;    
             Y = goblinY;
 
             enemyHP = 10;
@@ -27,7 +27,7 @@ namespace GADE_1b_redo
 
         public override movement ReturnMove(movement move = movement.NoMvm)
         {
-            throw new NotImplementedException();
+            return 0; 
         }
     }
 }

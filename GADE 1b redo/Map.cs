@@ -14,18 +14,27 @@ namespace GADE_1b_redo
 {
     public class Map
     {
-        //public char[,] mapTiles;
+        private Form1 frmGame = new Form1();
         private Tile[,] tileMapTiles;
-        private Hero myHero = new Hero(); //A Hero object to represent the player character
+
+        private static int heroX;
+        private static int heroY;
+        private static int heroHP;
+
+        private Hero myHero = new Hero(heroX, heroY, heroHP); //A Hero object to represent the player character
         private Enemy[] enemies;
         public int mapHeight, mapWidth;
+        public int inputMaxHeight, inputMinHeight, inputMaxWidth, inputMinWidth;
         public Random rndmNum = new Random();
+
+        public string madeMap;
 
         Item[] mapItems; 
 
 
         public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies, int mumOfGold)
         {
+
 
             mapHeight = rndmNum.Next(inputMinHeight, inputMaxHeight);
             mapWidth = rndmNum.Next(inputMinWidth, inputMaxWidth);
@@ -36,26 +45,28 @@ namespace GADE_1b_redo
             enemies = new Enemy[GetNumEnemies()];  //values taken from getNumEnemies
 
             
-            int goblinX = rndmNum.Next(mapHeight, mapWidth);
-            int goblinY = rndmNum.Next(mapHeight, mapWidth);
+            int spawnX = rndmNum.Next(mapHeight, mapWidth);
+            int spawnY = rndmNum.Next(mapHeight, mapWidth);
             string goblinSymbol = "G"; // G golbin symbol
             string heroSymbol = "H"; // hero symbol
             string mageSymbol = "M";
 
-            string sGoblinX = Convert.ToString(goblinX);
-            string sGoblinY = Convert.ToString(goblinY);
+            string _spawnX = Convert.ToString(spawnX);
+            string _spawnY = Convert.ToString(spawnY);
 
-            for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates a goblino
+            Create(_spawnX,_spawnY, 2, 20 , 20, heroSymbol);    //creates a hero
+
+            for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates el goblinos
             {
-                Create(sGoblinX, sGoblinY, 1, 10, 10, goblinSymbol);
+                Create(_spawnX, _spawnY, 1, 10, 10, goblinSymbol);
             }
-            Create(sGoblinX,sGoblinY, 2, 20 , 20, heroSymbol);    //creates a hero?
+           
 
-            Create(sGoblinX, sGoblinY, 5, 5, 5, mageSymbol); //creates mage
+            Create(_spawnX, _spawnY, 5, 5, 5, mageSymbol); //creates mage    //task 2
 
             
 
-            //create()  create enemy and pit them on a tile (pre lessons)
+            
             //UpdateVision   for character vision 
         }
 
@@ -63,10 +74,11 @@ namespace GADE_1b_redo
         {
         }
 
+
         private int GetNumEnemies()
         {
             
-            double rawNumEnemies;
+            double rawNumEnemies;   //using "math" requires a double
             int numEnemies;
             if (mapHeight < 7)
             {
@@ -96,11 +108,10 @@ namespace GADE_1b_redo
 
         private void Create(string unitX, string unitY, int unitDamage, int unitHP, int unitMaxHP, string symbol)
         {
-           //create instance of character (hero or enemy)
-           //create instance of an object 
-           
+            //create instance of character (hero or enemy)
+            
 
-
+           //create instance of an object
         }
 
         public void UpdateVision()
@@ -111,14 +122,17 @@ namespace GADE_1b_redo
 
             //north, south, east and west position from the X and Y positions of the unit
         }
-        //private Tile Create()
-        //{
-        //    return 
-        //}
-        public Item GetItemAtPosition(int x, int y)
+        private Tile Create(Tile.TileType test)
         {
+            
 
+            return null;
         }
+
+        //public Item GetItemAtPosition(int x, int y)
+        //{
+
+        //}
     }
 }
 

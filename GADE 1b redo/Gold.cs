@@ -11,7 +11,7 @@ namespace GADE_1b_redo
         private int goldCount;
         private Random rndGold = new Random();
         
-        public Gold(string goldX, string goldY) : base()
+        public Gold(int goldX, int goldY) : base()
         {
             X = goldX;
             Y = goldY;

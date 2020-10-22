@@ -8,11 +8,11 @@ namespace GADE_1b_redo
 {
     abstract class Tile
     {
-        protected string X { get; set; }
-        protected string Y { get; set; }
-        public enum TileType { Hero, Enemy, Gold, Weapon };
+        protected int X { get; set; }
+        protected int Y { get; set; }
+        public enum TileType { Hero, Enemy, Gold, Weapon, EmptyTile };
 
-        public Tile(string x, string y)
+        public Tile(int x, int y)
         {
             X = x;
             Y = y;

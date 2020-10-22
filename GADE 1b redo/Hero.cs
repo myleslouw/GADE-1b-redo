@@ -8,10 +8,10 @@ namespace GADE_1b_redo
 {
     class Hero : Character
     {
-        public Hero(string heroX, string heroY, int heroHP)
+        public Hero(int heroX, int heroY, int heroHP)
         {
-            xPos = heroX;    //X = heroX doesnt give an error     //doesnt fix errors in ToString doh. 
-            yPos = heroY;
+            X = heroX;    //X = heroX doesnt give an error     //doesnt fix errors in ToString doh. 
+            Y = heroY;
             HP = heroHP;
             maxHP = heroHP;
             damage = 2;
@@ -19,7 +19,12 @@ namespace GADE_1b_redo
 
         public override movement ReturnMove(movement move = movement.NoMvm)
         {
-            throw new NotImplementedException();
+            //if ()
+            //{
+            //    move = movement.Up;
+            //}
+
+            return 0;
         }
 
         //public override ReturnMove()
@@ -35,14 +40,12 @@ namespace GADE_1b_redo
 
         //    return movement.NoMvm;
         //}
+
         public override string ToString()
         {
-
-            // do as previous to string but change the variables etc
-
             string heroInfo;
-            
-            heroInfo = "Player Stats: \n HP: " + heroHP + " / " + maxHP + "\n Damage: 2 \n [" + heroX + " , " + heroY;
+
+            heroInfo = "Player Stats: \n HP: " + HP + " / " + maxHP + "\n Damage: 2 \n [" + X + " , " + Y;
             return heroInfo;
         }
     }

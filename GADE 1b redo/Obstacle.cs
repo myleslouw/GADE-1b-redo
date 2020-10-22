@@ -8,7 +8,7 @@ namespace GADE_1b_redo
 {
     class Obstacle : Tile   
     {
-        public Obstacle(string x, string y) : base()
+        public Obstacle(int x, int y) : base()
         {
             X = x;
             Y = y;

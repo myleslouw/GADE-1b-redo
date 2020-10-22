@@ -12,41 +12,50 @@ namespace GADE_1b_redo
 {
     public partial class Form1 : Form
     {
-        GameEngine engine;
+        
 
-        public static string MinHeight;
-        public static string MaxHeight;
-        public static string MaxWidth;
-        public static string MinWidth;
+        public int MinHeight;
+        public int MaxHeight;
+        public int MaxWidth;
+        public int MinWidth;
+
+        public string gameText;
 
         
-        //Map instance = new Map(10,10,10,10,0); 
+        
         public Form1()
         {
             InitializeComponent();
-            engine = new GameEngine();
+            
             
         }
 
         public void GetCoordinate()
         {
-            MinHeight = txtbox_minHeight.Text;
-            MaxHeight = txtbox_maxHeight.Text;
-            MaxWidth = txtbox_maxWidth.Text;
-            MinWidth = txtbox_minWidth.Text;
+            MinHeight = Convert.ToInt32(txtbox_minHeight.Text);
+            MaxHeight = Convert.ToInt32(txtbox_maxHeight.Text);
+            MaxWidth = Convert.ToInt32(txtbox_maxWidth.Text);
+            MinWidth = Convert.ToInt32(txtbox_minWidth.Text);
  
         }
 
         private void btn_start_Click(object sender, EventArgs e)
         {
             GetCoordinate();
+            ShowMap();
+
             
         }
 
-        public void showMap()
+        public void ShowMap()
         {
-            lbl_game.Text += "idk what to do";
+            //gameText = "testing";
+            lbl_game.Text +=  gameText;
         }
-    
+
+        private void btn_Up_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

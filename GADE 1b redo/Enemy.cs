@@ -21,7 +21,7 @@ namespace GADE_1b_redo
 
         }
 
-        public Enemy(string enemyX, string enemyY, string _enemySymbol, int _enemyDamage, int _enemyHP, int _enemyMaxHP)
+        public Enemy(int enemyX, int enemyY, string _enemySymbol, int _enemyDamage, int _enemyHP, int _enemyMaxHP)
         {
             X = enemyX;
             Y = enemyY;
@@ -35,7 +35,7 @@ namespace GADE_1b_redo
         {
             string enemyInfo;
             string className = "Enemy";
-            enemyInfo = className + " at [" + _enemyX + ", " + _enemyY + "] (" + _enemyDamage + ")";
+            enemyInfo = className + " at [" + X + ", " + Y + "] (" + enemyDamage + ")";
             return enemyInfo;
 
         }

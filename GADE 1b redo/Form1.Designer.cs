@@ -58,6 +58,7 @@
             this.btn_Up.Text = "^";
             this.btn_Up.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Up.UseVisualStyleBackColor = true;
+            this.btn_Up.Click += new System.EventHandler(this.btn_Up_Click);
             // 
             // btn_down
             // 

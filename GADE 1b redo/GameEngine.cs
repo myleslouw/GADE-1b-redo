@@ -7,30 +7,61 @@ using System.Windows.Forms;
 
 namespace GADE_1b_redo
 {
-    class GameEngine 
+    class GameEngine : Map
     {
-        private Map myMap { get; set; }
-        private Form1 form;
-        private char[,] mapTiles;
-        private int _mapHeight;
-        private int _mapWidth;
+        private Form1 frmGame = new Form1();
+
+        private static Map myMap { get; set; }
+
+        private int _mapMaxHeight;
+        private int _mapMaxWidth;
+
+        private string[,] mapArray = new string[myMap.mapHeight, myMap.mapWidth];
+
+
 
         private static readonly char heroChar = 'H';
         private static readonly char goblinChar = 'G';
         private static readonly char emptyChar = '.';
         private static readonly char obstacleChar = 'X';
-
-
-
+        private static readonly char mageChar = 'M';
 
 
         public GameEngine()
         {
             myMap = new Map();
-            myMap.mapHeight = _mapHeight;
-            myMap.mapWidth = _mapWidth;
+
+
+            myMap.inputMaxHeight = frmGame.MaxHeight;
+            myMap.inputMaxWidth = frmGame.MaxWidth;
+            myMap.inputMinHeight = frmGame.MinHeight;
+            myMap.inputMinWidth = frmGame.MinWidth;
 
         }
+        public bool MovePlayer(Character.movement direction)
+        {
+            return false;
+        }
+
+        public override string ToString()
+        { 
+
+            for (int i = 0; i < myMap.mapHeight; i++)
+            {
+                for (int j = 0; j < myMap.mapWidth; j++)
+                {
+                    mapArray[i,j] = ".";
+                }
+            }
+            return null;
+
+        }
+
+        public string[,] MapArray
+        {
+            get { return mapArray; }
+        }
+
         public bool MovePlayer()
         {
 

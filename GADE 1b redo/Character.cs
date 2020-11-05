@@ -34,7 +34,7 @@ namespace GADE_1b_redo
         {
             target.HP -= damage;
 
-            //characterVision[0] =  Y + 1;
+
         }
 
         public bool IsDead()
@@ -71,7 +71,7 @@ namespace GADE_1b_redo
 
                     //fetch position of character (x pos and Y pos)
                     //increase/decrease acordingly
-
+                    
                     Y = Y++;        
 
                     break;
@@ -102,8 +102,12 @@ namespace GADE_1b_redo
                     Y = Y;
 
                     break;
-
             }
+
+
+            //characterVision[0] =  Y + 1;
+
+
         }
         public abstract movement ReturnMove(movement move = 0);
 

@@ -7,26 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GADE_1b_redo;
+
 namespace GADE_1b_redo
 {
     public partial class Form1 : Form
     {
         
 
-        public int MinHeight;
-        public int MaxHeight;
-        public int MaxWidth;
-        public int MinWidth;
+       //public int MinHeight; just remove get and set if this doesnt work. just testing
+        public static int MinHeight { get; set; }
+        public static int MaxHeight { get; set; }
+        public static int MaxWidth { get; set; }
+        public static int MinWidth { get; set; }
 
         public string gameText;
-
+        GameEngine engine = new GameEngine();
+        
+        
         
         
         public Form1()
         {
             InitializeComponent();
-            
             
         }
 
@@ -42,15 +44,47 @@ namespace GADE_1b_redo
         private void btn_start_Click(object sender, EventArgs e)
         {
             GetCoordinate();
+            //Called gameengine to update maparray.
+            engine.CreateMapArrayMethod();
             ShowMap();
+            
+
+
 
             
         }
 
+
+
         public void ShowMap()
         {
-            //gameText = "testing";
-            lbl_game.Text +=  gameText;
+
+            lbl_game.Text = "";
+            createMap();
+
+        }
+
+        public void createMap()
+        {
+            //lbl_game.Text += engine.MapArray.ToString();
+            //The above is the gist
+            string MapText = engine.MapArray.ToString();   //change the hard coded 5 values
+
+
+
+            engine.mapHeight = engine.MapArray.GetLength(0); //needed to loop through map values otherwise they are 0
+            engine.mapWidth = engine.MapArray.GetLength(1);
+
+            
+            for (int i = 0; i < engine.mapHeight; i++) //Make this height of engine.MapArray    needs above code ^^ the get Length code
+            {
+                for (int j = 0; j < engine.mapWidth; j++) //Make this width engine.MapArray    //did that
+                {
+                    lbl_game.Text += engine.MapArray[i, j];
+                }
+                lbl_game.Text += "\n"; //new line
+            }
+
         }
 
         private void btn_Up_Click(object sender, EventArgs e)

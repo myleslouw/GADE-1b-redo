@@ -134,6 +134,7 @@
             this.txtbox_maxWidth.Name = "txtbox_maxWidth";
             this.txtbox_maxWidth.Size = new System.Drawing.Size(100, 20);
             this.txtbox_maxWidth.TabIndex = 11;
+            this.txtbox_maxWidth.Text = "10";
             // 
             // txtbox_minHeight
             // 
@@ -141,6 +142,7 @@
             this.txtbox_minHeight.Name = "txtbox_minHeight";
             this.txtbox_minHeight.Size = new System.Drawing.Size(100, 20);
             this.txtbox_minHeight.TabIndex = 12;
+            this.txtbox_minHeight.Text = "5";
             // 
             // txtbox_minWidth
             // 
@@ -148,6 +150,7 @@
             this.txtbox_minWidth.Name = "txtbox_minWidth";
             this.txtbox_minWidth.Size = new System.Drawing.Size(100, 20);
             this.txtbox_minWidth.TabIndex = 13;
+            this.txtbox_minWidth.Text = "5";
             // 
             // txtbox_maxHeight
             // 
@@ -155,6 +158,7 @@
             this.txtbox_maxHeight.Name = "txtbox_maxHeight";
             this.txtbox_maxHeight.Size = new System.Drawing.Size(100, 20);
             this.txtbox_maxHeight.TabIndex = 14;
+            this.txtbox_maxHeight.Text = "10";
             // 
             // btn_start
             // 

@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GADE_1b_redo;
 
 
 namespace GADE_1b_redo
 {
     public class Map
     {
-        private Form1 frmGame = new Form1();
+        //private Form1 frmGame = new Form1();
         private Tile[,] tileMapTiles;
 
         private static int heroX;
@@ -32,37 +31,42 @@ namespace GADE_1b_redo
         Item[] mapItems; 
 
 
-        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies, int mumOfGold)
+        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies = 0, int numOfGold =0 ) //Enemies and gold are default valuies, i need to change this later to actual values or edit in code later
         {
 
+            inputMaxHeight = Form1.MaxHeight;
+            inputMaxWidth = Form1.MaxWidth;
+            inputMinHeight = Form1.MinHeight;
+            inputMinWidth = Form1.MinWidth;
 
             mapHeight = rndmNum.Next(inputMinHeight, inputMaxHeight);
             mapWidth = rndmNum.Next(inputMinWidth, inputMaxWidth);
 
 
-            tileMapTiles = new Tile[mapWidth, mapHeight];
+            tileMapTiles = new Tile[mapHeight, mapWidth]; 
 
             enemies = new Enemy[GetNumEnemies()];  //values taken from getNumEnemies
 
             
-            int spawnX = rndmNum.Next(mapHeight, mapWidth);
-            int spawnY = rndmNum.Next(mapHeight, mapWidth);
-            string goblinSymbol = "G"; // G golbin symbol
-            string heroSymbol = "H"; // hero symbol
-            string mageSymbol = "M";
+            //int spawnX = rndmNum.Next(1 ,mapHeight);   
+            //int spawnY = rndmNum.Next(1 , mapWidth);
 
-            string _spawnX = Convert.ToString(spawnX);
-            string _spawnY = Convert.ToString(spawnY);
+            //string goblinSymbol = "G"; // G goblin symbol
+            //string heroSymbol = "H"; // hero symbol
+            //string mageSymbol = "M";
 
-            Create(_spawnX,_spawnY, 2, 20 , 20, heroSymbol);    //creates a hero
+            //string _spawnX = Convert.ToString(spawnX);
+            //string _spawnY = Convert.ToString(spawnY);
 
-            for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates el goblinos
-            {
-                Create(_spawnX, _spawnY, 1, 10, 10, goblinSymbol);
-            }
+            //Create(_spawnX,_spawnY, 2, 20 , 20, heroSymbol);    //creates a hero
+
+            //for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates el goblinos
+            //{
+            //    Create(_spawnX, _spawnY, 1, 10, 10, goblinSymbol);
+            //}
            
 
-            Create(_spawnX, _spawnY, 5, 5, 5, mageSymbol); //creates mage    //task 2
+            //Create(_spawnX, _spawnY, 5, 5, 5, mageSymbol); //creates mage    //task 2
 
             
 
@@ -72,8 +76,8 @@ namespace GADE_1b_redo
 
         public Map()
         {
-        }
 
+        }
 
         private int GetNumEnemies()
         {
@@ -103,7 +107,7 @@ namespace GADE_1b_redo
                 numEnemies = Convert.ToInt32(Math.Ceiling(rawNumEnemies));
             }
 
-            return numEnemies;  //is this correct?
+            return numEnemies;  
         }
 
         private void Create(string unitX, string unitY, int unitDamage, int unitHP, int unitMaxHP, string symbol)
@@ -129,7 +133,7 @@ namespace GADE_1b_redo
             return null;
         }
 
-        //public Item GetItemAtPosition(int x, int y)
+        //public Item GetItemAtPosition(int x, int y)   task 2 work
         //{
 
         //}

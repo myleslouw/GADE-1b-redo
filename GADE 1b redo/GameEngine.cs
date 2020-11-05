@@ -9,15 +9,16 @@ namespace GADE_1b_redo
 {
     class GameEngine : Map
     {
-        private Form1 frmGame = new Form1();
+        //private Form1 frmGame = new Form1();
 
         private static Map myMap { get; set; }
 
         private int _mapMaxHeight;
         private int _mapMaxWidth;
+        private int _mapMinHeight;
+        private int _mapMinWidth;
 
-        private string[,] mapArray = new string[myMap.mapHeight, myMap.mapWidth];
-
+        public string[,] MapArray { get; set; }
 
 
         private static readonly char heroChar = 'H';
@@ -29,37 +30,53 @@ namespace GADE_1b_redo
 
         public GameEngine()
         {
-            myMap = new Map();
+
+            myMap = new Map(Form1.MaxHeight, Form1.MaxWidth, Form1.MinHeight, Form1.MinHeight);
+
+            MapArray = new string[myMap.mapHeight, myMap.mapWidth];
 
 
-            myMap.inputMaxHeight = frmGame.MaxHeight;
-            myMap.inputMaxWidth = frmGame.MaxWidth;
-            myMap.inputMinHeight = frmGame.MinHeight;
-            myMap.inputMinWidth = frmGame.MinWidth;
 
         }
         public bool MovePlayer(Character.movement direction)
         {
+
+
             return false;
         }
 
-        public override string ToString()
-        { 
+        public void CreateMapArrayMethod() 
+        {
+            
+           myMap = new Map(Form1.MaxHeight, Form1.MaxWidth, Form1.MinHeight, Form1.MinHeight);
+            MapArray = new string[myMap.mapHeight, myMap.mapWidth];
 
             for (int i = 0; i < myMap.mapHeight; i++)
             {
                 for (int j = 0; j < myMap.mapWidth; j++)
                 {
-                    mapArray[i,j] = ".";
+                    MapArray[i, j] = ".";
                 }
             }
-            return null;
+           
+
+
 
         }
 
-        public string[,] MapArray
+        public override string ToString() //This needs to call your tile method
+            //TODO : Use tile method and call that array instead of the MapArray to get the actual new values you have set to the tile.
         {
-            get { return mapArray; }
+            string mapString = "";
+            for (int i = 0; i < MapArray.Length; i++) 
+            {
+                for (int j = 0; j < MapArray.Length; j++)
+                {
+                    mapString += MapArray[i, j];
+                }
+
+            }
+            return mapString;
         }
 
         public bool MovePlayer()

@@ -20,6 +20,7 @@ namespace GADE_1b_redo
 
         protected Tile()
         {
+
         }
     }
 }

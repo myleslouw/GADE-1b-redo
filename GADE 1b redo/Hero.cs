@@ -31,7 +31,7 @@ namespace GADE_1b_redo
         //{
         //    check characterVision
         //     if characterVIsion == true then move
-
+        
 
         //    click up button->move = movement.Up
         //    click down button->move = movement.down    you get the point

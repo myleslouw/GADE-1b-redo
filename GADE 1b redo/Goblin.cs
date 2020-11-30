@@ -8,10 +8,15 @@ namespace GADE_1b_redo
 {
     class Goblin : Enemy
     {
-        public Goblin(int goblinX, int goblinY)
+        public Goblin(int goblinX, int goblinY, int gobDamage, int gobHP, int gobMaxHP, string _symbol )
         {
             X = goblinX;    
             Y = goblinY;
+            enemyDamage = gobDamage;
+            enemyHP = gobHP;
+            enemyMaxHP = gobMaxHP;
+            enemySymbol = _symbol;
+
 
             enemyHP = 10;
             enemyDamage = 1;

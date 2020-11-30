@@ -16,22 +16,29 @@ namespace GADE_1b_redo
         //private Form1 frmGame = new Form1();
         private Tile[,] tileMapTiles;
 
+        private static Hero myHero { get; set; }
+        private static Goblin myGoblin { get; set; }
+        private static Mage myMage { get; set; }
+
         private static int heroX;
         private static int heroY;
         private static int heroHP;
 
-        private Hero myHero = new Hero(heroX, heroY, heroHP); //A Hero object to represent the player character
         private Enemy[] enemies;
+        public int numEnemies;
+        public int enemiesOnMap;
         public int mapHeight, mapWidth;
         public int inputMaxHeight, inputMinHeight, inputMaxWidth, inputMinWidth;
         public Random rndmNum = new Random();
+
+        
 
         public string madeMap;
 
         Item[] mapItems; 
 
 
-        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies = 0, int numOfGold =0 ) //Enemies and gold are default valuies, i need to change this later to actual values or edit in code later
+        public Map(int inputMaxHeight, int inputMaxWidth, int inputMinHeight, int inputMinWidth, int numEnemies = 0, int numOfGold = 0) //Enemies and gold are default valuies, i need to change this later to actual values or edit in code later
         {
 
             inputMaxHeight = Form1.MaxHeight;
@@ -42,35 +49,12 @@ namespace GADE_1b_redo
             mapHeight = rndmNum.Next(inputMinHeight, inputMaxHeight);
             mapWidth = rndmNum.Next(inputMinWidth, inputMaxWidth);
 
-
             tileMapTiles = new Tile[mapHeight, mapWidth]; 
 
             enemies = new Enemy[GetNumEnemies()];  //values taken from getNumEnemies
-
-            
-            //int spawnX = rndmNum.Next(1 ,mapHeight);   
-            //int spawnY = rndmNum.Next(1 , mapWidth);
-
-            //string goblinSymbol = "G"; // G goblin symbol
-            //string heroSymbol = "H"; // hero symbol
-            //string mageSymbol = "M";
-
-            //string _spawnX = Convert.ToString(spawnX);
-            //string _spawnY = Convert.ToString(spawnY);
-
-            //Create(_spawnX,_spawnY, 2, 20 , 20, heroSymbol);    //creates a hero
-
-            //for (int i = 0; i < enemies.Length; i++)    //loops through enemy array and creates el goblinos
-            //{
-            //    Create(_spawnX, _spawnY, 1, 10, 10, goblinSymbol);
-            //}
-           
-
-            //Create(_spawnX, _spawnY, 5, 5, 5, mageSymbol); //creates mage    //task 2
-
+            enemiesOnMap = enemies.Length;
             
 
-            
             //UpdateVision   for character vision 
         }
 
@@ -82,8 +66,8 @@ namespace GADE_1b_redo
         private int GetNumEnemies()
         {
             
-            double rawNumEnemies;   //using "math" requires a double
-            int numEnemies;
+            double rawNumEnemies;   //using "math" requires a double/float
+           
             if (mapHeight < 7)
             {
                 rawNumEnemies = ((mapHeight * mapWidth) / 10);
@@ -110,12 +94,25 @@ namespace GADE_1b_redo
             return numEnemies;  
         }
 
-        private void Create(string unitX, string unitY, int unitDamage, int unitHP, int unitMaxHP, string symbol)
+        public void Create(int unitX, int unitY, int unitDamage, int unitHP, int unitMaxHP, string symbol)
         {
-            //create instance of character (hero or enemy)
+            //Print a single unit with given parameters as the variables/info
+            string goblinSymbol = "G"; // G goblin symbol
+            string heroSymbol = "H"; // hero symbol
+            string mageSymbol = "M";
             
-
-           //create instance of an object
+            if (symbol == heroSymbol)
+            {
+                myHero = new Hero(unitX, unitY, unitDamage, unitHP, unitMaxHP, symbol);
+            }
+            else if (symbol == goblinSymbol)
+            {
+                myGoblin = new Goblin(unitX, unitY, unitDamage, unitHP, unitMaxHP, symbol);
+            }
+            else if (symbol == mageSymbol)
+            {
+                myMage = new Mage(unitX, unitY, unitDamage, unitHP, unitMaxHP, symbol);
+            }
         }
 
         public void UpdateVision()
@@ -126,6 +123,7 @@ namespace GADE_1b_redo
 
             //north, south, east and west position from the X and Y positions of the unit
         }
+
         private Tile Create(Tile.TileType test)
         {
             

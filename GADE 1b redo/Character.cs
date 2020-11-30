@@ -18,10 +18,13 @@ namespace GADE_1b_redo
 
         
 
-        public Character(int xPos, int yPos, string _symbol)
+        public Character(int xPos, int yPos, int dmg, int hp, int maxhp, string _symbol)
         {
             X = xPos;
             Y = yPos;
+            damage = dmg;
+            HP = hp;
+            maxHP = maxhp;
             symbol = _symbol;
 
         }

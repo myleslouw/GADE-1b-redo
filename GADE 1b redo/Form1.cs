@@ -12,9 +12,6 @@ namespace GADE_1b_redo
 {
     public partial class Form1 : Form
     {
-        
-
-       //public int MinHeight; just remove get and set if this doesnt work. just testing
         public static int MinHeight { get; set; }
         public static int MaxHeight { get; set; }
         public static int MaxWidth { get; set; }
@@ -22,8 +19,10 @@ namespace GADE_1b_redo
 
         public string gameText;
         GameEngine engine = new GameEngine();
-        
-        
+        //Map mapInstance = new Map();
+        private static Map mapInstance { get; set; }
+
+        public Random  rnd = new Random();
         
         
         public Form1()
@@ -47,14 +46,34 @@ namespace GADE_1b_redo
             //Called gameengine to update maparray.
             engine.CreateMapArrayMethod();
             ShowMap();
-            
 
+            int mapHeight = rnd.Next(MinHeight, MaxHeight);
+            int mapWidth = rnd.Next(MinWidth, MaxWidth);
+            int enemies = mapInstance.enemiesOnMap;
 
+            int spawnX = rnd.Next(1, mapHeight);
+            int spawnY = rnd.Next(1, mapWidth);
 
+            string goblinSymbol = "G"; // G goblin symbol
+            string heroSymbol = "H"; // hero symbol
+            string mageSymbol = "M";
+
+            mapInstance.Create(spawnX, spawnY, 2, 20, 20, heroSymbol);       // we nned mapInstance to call create     
+
+            int numGoblins = rnd.Next(1, enemies);                //<<<< gives an error   enemies isnt gettign a value.       
+            int numMages = mapInstance.enemiesOnMap - numGoblins;
+
+            for (int i = 0; i < numGoblins; i++)    //loops through enemy array and creates el goblinos
+            {
+                mapInstance.Create(spawnX, spawnY, 1, 10, 10, goblinSymbol);
+            }
+
+            for (int i = 0; i < numMages; i++)    //loops through enemy array and creates el goblinos
+            {
+                mapInstance.Create(spawnX, spawnY, 5, 5, 5, mageSymbol);
+            }
             
         }
-
-
 
         public void ShowMap()
         {
@@ -82,7 +101,7 @@ namespace GADE_1b_redo
                 {
                     lbl_game.Text += engine.MapArray[i, j];
                 }
-                lbl_game.Text += "\n"; //new line
+                lbl_game.Text += "\n"; 
             }
 
         }

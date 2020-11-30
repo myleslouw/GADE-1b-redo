@@ -48,14 +48,14 @@ namespace GADE_1b_redo
         public void CreateMapArrayMethod() 
         {
             
-           myMap = new Map(Form1.MaxHeight, Form1.MaxWidth, Form1.MinHeight, Form1.MinHeight);
+            myMap = new Map(Form1.MaxHeight, Form1.MaxWidth, Form1.MinHeight, Form1.MinHeight);
             MapArray = new string[myMap.mapHeight, myMap.mapWidth];
 
             for (int i = 0; i < myMap.mapHeight; i++)
             {
                 for (int j = 0; j < myMap.mapWidth; j++)
                 {
-                    MapArray[i, j] = ".";
+                    MapArray[i, j] = ".   ";
                 }
             }
            

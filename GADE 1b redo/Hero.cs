@@ -46,7 +46,7 @@ namespace GADE_1b_redo
         {
             string heroInfo;
 
-            heroInfo = "Player Stats: \n HP: " + HP + " / " + maxHP + "\n Damage: 2 \n [" + X + " , " + Y;
+            heroInfo = "Player Stats: \n HP: " + HP + " / " + maxHP + "\n Current Weapon: " + currentWeapon + "\n Weapon Range: " + Range + "\n Weapon Damage: " + damage+ " \n [" + X + " , " + Y;
             return heroInfo;
         }
     }
